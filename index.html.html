@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alphonzo & India · May 29, 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --forest:#1a2e1a;
+  --moss:#2d4a2d;
+  --sage:#4a6741;
+  --fern:#6b8f5e;
+  --gold:#c9a84c;
+  --cream:#f0ead8;
+  --bark:#3d2b1f;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Josefin Sans',sans-serif;
+  background:var(--forest);
+  color:var(--cream);
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(26,46,26,0.97);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;
+  backdrop-filter:blur(8px);
+}
+.nav-mono{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;font-style:italic;
+  color:var(--gold);letter-spacing:0.08em;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{
+  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(240,234,216,0.55);text-decoration:none;
+  transition:color 0.2s;cursor:pointer;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--cream);transition:all 0.3s;}
+.mobile-menu{
+  display:none;position:fixed;top:56px;left:0;right:0;
+  background:rgba(26,46,26,0.98);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  padding:1.5rem 2rem;z-index:99;
+  backdrop-filter:blur(8px);
+}
+.mobile-menu.open{display:block;}
+.mobile-menu a{
+  display:block;padding:0.75rem 0;
+  font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(240,234,216,0.7);text-decoration:none;
+  border-bottom:1px solid rgba(201,168,76,0.1);
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--gold);}
+
+/* ── SECTIONS ── */
+section{min-height:100vh;padding-top:56px;}
+
+/* ── VINE DIVIDER ── */
+.vine{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin:1.5rem auto;max-width:280px;
+}
+.vine-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.45));}
+.vine-line.r{background:linear-gradient(to left,transparent,rgba(201,168,76,0.45));}
+.vine-glyph{color:var(--gold);font-size:18px;line-height:1;font-family:'Cormorant Garamond',serif;}
+
+/* ── HERO ── */
+#home{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
+  padding:5rem 2rem 4rem;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 15% 85%,rgba(45,74,45,0.55) 0%,transparent 50%),
+    radial-gradient(ellipse at 85% 15%,rgba(45,74,45,0.45) 0%,transparent 50%),
+    var(--forest);
+}
+#home::before{
+  content:'';position:absolute;
+  top:-80px;left:-100px;width:380px;height:380px;
+  border-radius:50%;border:1px solid rgba(107,143,94,0.15);
+  pointer-events:none;
+}
+#home::after{
+  content:'';position:absolute;
+  bottom:-100px;right:-80px;width:340px;height:340px;
+  border-radius:50%;border:1px solid rgba(107,143,94,0.12);
+  pointer-events:none;
+}
+.hero-tag{
+  font-size:10px;letter-spacing:0.38em;text-transform:uppercase;
+  color:var(--fern);margin-bottom:1.8rem;
+  animation:fadeUp 0.8s ease both;
+}
+.hero-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(60px,11vw,116px);
+  font-weight:300;font-style:italic;
+  color:var(--cream);line-height:1.0;
+  animation:fadeUp 0.8s 0.1s ease both;
+}
+.hero-amp{
+  display:block;color:var(--gold);
+  font-size:clamp(78px,13vw,136px);
+  line-height:0.85;margin:0.05em 0;
+}
+.hero-date-line{
+  font-size:12px;letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(240,234,216,0.5);margin-bottom:0.5rem;margin-top:0.3rem;
+  animation:fadeUp 0.8s 0.2s ease both;
+}
+.hero-venue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-style:italic;font-weight:300;
+  color:var(--gold);margin-bottom:3rem;line-height:1.4;
+  animation:fadeUp 0.8s 0.25s ease both;
+}
+.countdown{
+  display:flex;gap:2.5rem;margin-bottom:3rem;
+  flex-wrap:wrap;justify-content:center;
+  animation:fadeUp 0.8s 0.3s ease both;
+}
+.cd-unit{text-align:center;}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:54px;font-weight:300;color:var(--gold);
+  line-height:1;display:block;
+}
+.cd-label{
+  font-size:9px;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(240,234,216,0.3);margin-top:4px;
+}
+.btn-row{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp 0.8s 0.35s ease both;
+}
+.btn{
+  display:inline-block;padding:13px 36px;
+  border:1px solid var(--gold);color:var(--gold);
+  font-family:'Josefin Sans',sans-serif;
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  cursor:pointer;background:transparent;
+  transition:all 0.25s;text-decoration:none;
+}
+.btn:hover{background:var(--gold);color:var(--forest);}
+.btn-moss{border-color:var(--fern);color:var(--fern);}
+.btn-moss:hover{background:var(--fern);color:var(--cream);}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── SECTION HEADER ── */
+.sec-head{text-align:center;padding:4rem 2rem 2rem;}
+.sec-eye{
+  font-size:10px;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.8rem;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,7vw,72px);
+  font-weight:300;font-style:italic;color:var(--cream);line-height:1.1;
+}
+
+/* ── FOREST CARD ── */
+.fcard{
+  border:1px solid rgba(201,168,76,0.25);
+  position:relative;padding:3rem 2.5rem;
+  background:rgba(45,74,45,0.18);
+}
+.fcard::before,.fcard::after{
+  content:'';position:absolute;
+  width:18px;height:18px;
+  border-color:var(--gold);border-style:solid;opacity:0.45;
+}
+.fcard::before{top:10px;left:10px;border-width:1px 0 0 1px;}
+.fcard::after{bottom:10px;right:10px;border-width:0 1px 1px 0;}
+
+/* ── SAVE THE DATE ── */
+#savedate{
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(45,74,45,0.4) 0%,transparent 50%),
+    var(--forest);
+}
+.std-wrap{max-width:540px;margin:0 auto;padding:1rem 1.5rem 5rem;}
+.card-eyebrow{
+  font-size:10px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+}
+.card-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;font-weight:300;font-style:italic;
+  color:var(--cream);line-height:1.1;margin-bottom:0.1em;
+}
+.card-amp-sm{color:var(--gold);}
+.card-sub{
+  font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(240,234,216,0.4);margin-bottom:2rem;
+}
+.card-date{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;font-weight:300;color:var(--gold);margin-bottom:0.4rem;
+}
+.card-loc{
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(240,234,216,0.45);margin-bottom:2rem;
+}
+.card-tag-sm{
+  font-size:12px;letter-spacing:0.1em;
+  color:rgba(240,234,216,0.3);
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+}
+.card-back-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-style:italic;font-weight:300;
+  line-height:1.65;color:rgba(240,234,216,0.55);margin-bottom:1.5rem;
+}
+
+/* ── INVITATION ── */
+#invitation{
+  background:
+    radial-gradient(ellipse at 20% 80%,rgba(45,74,45,0.4) 0%,transparent 50%),
+    var(--forest);
+}
+.inv-wrap{max-width:680px;margin:0 auto;padding:1rem 1.5rem 5rem;}
+.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.inv-panel{
+  padding:2.5rem 2rem;
+  border:1px solid rgba(201,168,76,0.15);
+  background:rgba(45,74,45,0.15);
+}
+.inv-cover{grid-column:1/-1;text-align:center;padding:4rem 2.5rem;}
+.inv-label{
+  font-size:9px;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+}
+.inv-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:9px 0;border-bottom:1px solid rgba(201,168,76,0.1);
+}
+.inv-row:last-child{border-bottom:none;}
+.inv-key{
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(240,234,216,0.3);
+}
+.inv-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-style:italic;color:var(--cream);text-align:right;
+}
+
+/* ── OUR STORY ── */
+#story{
+  background:
+    radial-gradient(ellipse at 70% 30%,rgba(45,74,45,0.35) 0%,transparent 50%),
+    var(--forest);
+}
+.story-wrap{max-width:640px;margin:0 auto;padding:1rem 1.5rem 5rem;}
+.story-p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;font-style:italic;
+  line-height:1.75;color:rgba(240,234,216,0.6);margin-bottom:1.5rem;
+}
+.photo-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-bottom:3rem;
+}
+.photo-ph{
+  border:1px solid rgba(201,168,76,0.2);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:10px;
+  color:rgba(240,234,216,0.25);font-size:10px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  background:rgba(45,74,45,0.18);aspect-ratio:3/4;
+  position:relative;overflow:hidden;
+}
+.photo-ph-note{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-style:italic;
+  color:rgba(240,234,216,0.2);text-align:center;
+  letter-spacing:0.05em;text-transform:none;
+  line-height:1.5;
+}
+
+/* ── DETAILS ── */
+#details{
+  background:
+    radial-gradient(ellipse at 30% 70%,rgba(45,74,45,0.4) 0%,transparent 50%),
+    var(--forest);
+}
+.details-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;max-width:680px;margin:0 auto;padding:0 1.5rem 5rem;
+}
+.detail-block{
+  padding:2.5rem 2rem;
+  border:1px solid rgba(201,168,76,0.15);
+  background:rgba(45,74,45,0.15);
+}
+.detail-bar{width:24px;height:2px;background:var(--fern);margin-bottom:1.2rem;}
+.detail-title{
+  font-size:9px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.8rem;
+}
+.detail-main{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;font-style:italic;
+  color:var(--cream);line-height:1.3;margin-bottom:0.5rem;
+}
+.detail-sub{font-size:12px;color:rgba(240,234,216,0.38);line-height:1.7;}
+
+/* ── RSVP ── */
+#rsvp{
+  background:
+    radial-gradient(ellipse at 60% 40%,rgba(45,74,45,0.4) 0%,transparent 50%),
+    var(--forest);
+}
+.rsvp-wrap{max-width:540px;margin:0 auto;padding:1rem 1.5rem 5rem;}
+.rsvp-box{
+  border:1px solid rgba(201,168,76,0.25);
+  background:rgba(45,74,45,0.2);
+  padding:3rem 2.5rem;text-align:center;
+  position:relative;
+}
+.rsvp-box::before,.rsvp-box::after{
+  content:'';position:absolute;
+  width:18px;height:18px;border-color:var(--gold);
+  border-style:solid;opacity:0.45;
+}
+.rsvp-box::before{top:10px;left:10px;border-width:1px 0 0 1px;}
+.rsvp-box::after{bottom:10px;right:10px;border-width:0 1px 1px 0;}
+.live-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(107,143,94,0.18);
+  border:1px solid rgba(107,143,94,0.35);
+  padding:6px 16px;margin-bottom:2rem;
+}
+.live-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--fern);animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.live-text{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fern);}
+.rsvp-deadline{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(240,234,216,0.3);margin-bottom:1.5rem;
+}
+.rsvp-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-style:italic;font-weight:300;
+  color:rgba(240,234,216,0.55);line-height:1.65;margin-bottom:2.5rem;
+}
+.rsvp-steps{text-align:left;margin:2rem 0;display:grid;gap:12px;}
+.rsvp-step{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:14px;border:1px solid rgba(201,168,76,0.12);
+  background:rgba(45,74,45,0.25);
+}
+.step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;font-weight:300;color:var(--gold);
+  line-height:1;flex-shrink:0;width:24px;
+}
+.step-text{font-size:12px;color:rgba(240,234,216,0.5);line-height:1.6;padding-top:4px;}
+.step-text strong{color:var(--cream);font-weight:400;}
+.btn-rsvp{
+  display:block;width:100%;padding:18px;
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);font-family:'Josefin Sans',sans-serif;
+  font-size:12px;letter-spacing:0.28em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.25s;text-decoration:none;
+  text-align:center;margin-top:2rem;
+}
+.btn-rsvp:hover{background:var(--gold);color:var(--forest);}
+
+/* ── REGISTRY ── */
+#registry{
+  background:
+    radial-gradient(ellipse at 40% 60%,rgba(45,74,45,0.35) 0%,transparent 50%),
+    var(--forest);
+}
+.reg-wrap{max-width:560px;margin:0 auto;padding:1rem 1.5rem 5rem;text-align:center;}
+.reg-note{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-style:italic;font-weight:300;
+  color:rgba(240,234,216,0.52);line-height:1.65;margin:2rem 0 3rem;
+}
+.reg-grid{display:grid;gap:12px;max-width:320px;margin:0 auto;}
+
+/* ── GALLERY ── */
+#gallery{
+  background:
+    radial-gradient(ellipse at 70% 70%,rgba(45,74,45,0.35) 0%,transparent 50%),
+    var(--forest);
+}
+.gallery-wrap{max-width:680px;margin:0 auto;padding:1rem 1.5rem 5rem;}
+.gallery-note{
+  font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(240,234,216,0.25);text-align:center;margin-bottom:2rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  letter-spacing:0.05em;text-transform:none;font-size:16px;
+  color:rgba(240,234,216,0.35);
+}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.gallery-ph{
+  aspect-ratio:1;
+  border:1px solid rgba(201,168,76,0.15);
+  background:rgba(45,74,45,0.18);
+  display:flex;align-items:center;justify-content:center;
+}
+.gallery-ph-inner{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-style:italic;
+  color:rgba(240,234,216,0.15);text-align:center;
+  line-height:1.6;padding:1rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:3rem 2rem;
+  border-top:1px solid rgba(201,168,76,0.15);
+}
+.footer-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;font-style:italic;
+  color:var(--gold);margin-bottom:0.5rem;
+}
+.footer-date{
+  font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(240,234,216,0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .inv-grid{grid-template-columns:1fr;}
+  .details-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .photo-grid{grid-template-columns:1fr;}
+  .countdown{gap:1.5rem;}
+  .cd-num{font-size:40px;}
+  nav{padding:0 1.25rem;}
+  .fcard{padding:2rem 1.5rem;}
+  .rsvp-box{padding:2rem 1.5rem;}
+  .inv-cover{padding:2.5rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-mono" href="#home">A &amp; I · 2027</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#savedate">Save the Date</a></li>
+    <li><a href="#invitation">Invitation</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#registry">Registry</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#savedate" onclick="closeMenu()">Save the Date</a>
+  <a href="#invitation" onclick="closeMenu()">Invitation</a>
+  <a href="#story" onclick="closeMenu()">Our Story</a>
+  <a href="#details" onclick="closeMenu()">Details</a>
+  <a href="#rsvp" onclick="closeMenu()">RSVP</a>
+  <a href="#registry" onclick="closeMenu()">Registry</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+</div>
+
+<!-- HOME -->
+<section id="home">
+  <p class="hero-tag">✦ forevermoore2027 ✦</p>
+  <div class="hero-names">
+    Alphonzo
+    <span class="hero-amp">&amp;</span>
+    India
+  </div>
+  <div class="vine"><span class="vine-line"></span><span class="vine-glyph">❧</span><span class="vine-line r"></span></div>
+  <p class="hero-date-line">Saturday · May 29, 2027</p>
+  <p class="hero-venue">Occasions Party Centre<br>New Franklin, Ohio</p>
+  <div class="countdown">
+    <div class="cd-unit"><span class="cd-num" id="cd-d">—</span><span class="cd-label">Days</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-h">—</span><span class="cd-label">Hours</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">—</span><span class="cd-label">Minutes</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">—</span><span class="cd-label">Seconds</span></div>
+  </div>
+  <div class="btn-row">
+    <a class="btn" href="#rsvp">RSVP Now</a>
+    <a class="btn btn-moss" href="#details">Wedding Details</a>
+  </div>
+  <div class="vine" style="margin-top:3rem;"></div>
+  <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,234,216,0.2);margin-top:1rem;">
+    An enchanted celebration awaits
+  </p>
+</section>
+
+<!-- SAVE THE DATE -->
+<section id="savedate">
+  <div class="sec-head">
+    <p class="sec-eye">Mark Your Calendar</p>
+    <h2 class="sec-title">Save the Date</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="std-wrap">
+    <div class="fcard" style="text-align:center;margin-bottom:2px;">
+      <p class="card-eyebrow">Save the Date</p>
+      <div class="card-names">Alphonzo<br><span class="card-amp-sm">&amp;</span><br>India</div>
+      <p class="card-sub">Are Getting Married</p>
+      <div class="vine"></div>
+      <p class="card-date">Saturday, May 29, 2027</p>
+      <p class="card-loc">Occasions Party Centre · New Franklin, Ohio</p>
+      <p class="card-tag-sm">Formal invitation to follow</p>
+    </div>
+    <div class="fcard" style="text-align:center;">
+      <p class="card-back-text">Two hearts.<br>One journey.<br>One unforgettable celebration.</p>
+      <div class="vine"></div>
+      <p style="font-size:14px;color:rgba(240,234,216,0.38);line-height:1.8;font-family:'Cormorant Garamond',serif;font-style:italic;">
+        Please save the date and celebrate with us<br>as we begin our next chapter together.
+      </p>
+    </div>
+    <div style="text-align:center;margin-top:2rem;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn" href="#rsvp">RSVP Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<section id="invitation">
+  <div class="sec-head">
+    <p class="sec-eye">You Are Invited</p>
+    <h2 class="sec-title">The Invitation</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="inv-wrap">
+    <div class="inv-grid">
+      <div class="inv-panel inv-cover fcard">
+        <p class="inv-label">Together With Their Families</p>
+        <div class="card-names">Alphonzo Moore<br><span class="card-amp-sm">&amp;</span><br>India Surgeon</div>
+        <div class="vine"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(240,234,216,0.55);line-height:1.75;">
+          request the honor of your presence<br>at their wedding celebration
+        </p>
+        <p class="card-date" style="margin-top:1.5rem;">Saturday, May 29, 2027</p>
+      </div>
+      <div class="inv-panel">
+        <p class="inv-label">Ceremony</p>
+        <div class="inv-row"><span class="inv-key">Date</span><span class="inv-val">Saturday, May 29, 2027</span></div>
+        <div class="inv-row"><span class="inv-key">Time</span><span class="inv-val">5:00 PM</span></div>
+        <div class="inv-row"><span class="inv-key">Venue</span><span class="inv-val">Occasions Party Centre</span></div>
+        <div class="inv-row"><span class="inv-key">Address</span><span class="inv-val">6800 Manchester Rd</span></div>
+        <div class="inv-row"><span class="inv-key">City</span><span class="inv-val">New Franklin, Ohio 44216</span></div>
+      </div>
+      <div class="inv-panel">
+        <p class="inv-label">Reception</p>
+        <div class="inv-row"><span class="inv-key">When</span><span class="inv-val">Immediately Following</span></div>
+        <div class="inv-row"><span class="inv-key">Includes</span><span class="inv-val">Dinner &amp; Dancing</span></div>
+        <div class="inv-row"><span class="inv-key">Attire</span><span class="inv-val">Formal / Black Tie Optional</span></div>
+        <div class="inv-row"><span class="inv-key">RSVP By</span><span class="inv-val">September 15, 2026</span></div>
+        <div class="inv-row"><span class="inv-key">Website</span><span class="inv-val">forevermoore2027</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a class="btn" href="#rsvp">RSVP Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="story">
+  <div class="sec-head">
+    <p class="sec-eye">How It All Began</p>
+    <h2 class="sec-title">Our Story</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="story-wrap">
+    <div class="photo-grid">
+      <div class="photo-ph">
+        <p class="photo-ph-note">Engagement photos<br>arriving September 2026</p>
+      </div>
+      <div class="photo-ph" style="margin-top:2.5rem;">
+        <p class="photo-ph-note">Engagement photos<br>arriving September 2026</p>
+      </div>
+    </div>
+    <p class="story-p">Every great love story begins with connection, trust, and purpose.</p>
+    <p class="story-p">What started as two paths crossing became a partnership built on love, loyalty, laughter, and strength.</p>
+    <p class="story-p">Now we are excited to begin the next chapter together — surrounded by family and friends who mean the world to us.</p>
+    <div class="vine" style="margin:2.5rem 0;"></div>
+    <div style="text-align:center;">
+      <a class="btn" href="#rsvp">Celebrate With Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details">
+  <div class="sec-head">
+    <p class="sec-eye">Everything You Need to Know</p>
+    <h2 class="sec-title">Wedding Details</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="details-grid">
+    <div class="detail-block">
+      <div class="detail-bar"></div>
+      <p class="detail-title">Ceremony</p>
+      <p class="detail-main">Saturday, May 29, 2027</p>
+      <p class="detail-sub">5:00 PM<br>Occasions Party Centre<br>6800 Manchester Rd<br>New Franklin, Ohio 44216</p>
+    </div>
+    <div class="detail-block">
+      <div class="detail-bar"></div>
+      <p class="detail-title">Reception</p>
+      <p class="detail-main">Immediately Following</p>
+      <p class="detail-sub">Dinner, dancing &amp; celebration<br>at the same location</p>
+    </div>
+    <div class="detail-block">
+      <div class="detail-bar"></div>
+      <p class="detail-title">Attire</p>
+      <p class="detail-main">Formal / Black Tie Optional</p>
+      <p class="detail-sub">Dress to celebrate. Elegant greens, golds, and deep tones encouraged. The forest awaits.</p>
+    </div>
+    <div class="detail-block">
+      <div class="detail-bar"></div>
+      <p class="detail-title">Travel &amp; Stay</p>
+      <p class="detail-main">New Franklin, Ohio</p>
+      <p class="detail-sub">Approximately 30 min from Columbus.<br>Hotel block details coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="sec-head">
+    <p class="sec-eye">May 29, 2027</p>
+    <h2 class="sec-title">RSVP</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="rsvp-wrap">
+    <div class="rsvp-box">
+      <div class="live-badge"><span class="live-dot"></span><span class="live-text">Responses go directly to our sheet</span></div>
+      <p class="rsvp-deadline">Please respond by September 15, 2026</p>
+      <p class="rsvp-tagline">
+        Join us beneath the canopy<br>for an enchanted celebration<br>of love, family, and forever.
+      </p>
+      <div class="rsvp-steps">
+        <div class="rsvp-step">
+          <span class="step-num">1</span>
+          <div class="step-text"><strong>Click the button below</strong><br>You'll be taken to our secure RSVP form</div>
+        </div>
+        <div class="rsvp-step">
+          <span class="step-num">2</span>
+          <div class="step-text"><strong>Fill out your details</strong><br>Name, attendance, plus-one, and a note for us</div>
+        </div>
+        <div class="rsvp-step">
+          <span class="step-num">3</span>
+          <div class="step-text"><strong>Submit — you're done!</strong><br>We'll be notified instantly and can't wait to see you</div>
+        </div>
+      </div>
+      <a class="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSdC6fOy4m9U8FR-P7zlh-pEH3uflfJiFRE_e5mgkh_gi3aU1A/viewform" target="_blank">
+        RSVP Now — Open Form →
+      </a>
+      <p style="font-size:10px;color:rgba(240,234,216,0.2);margin-top:1.5rem;letter-spacing:0.08em;">
+        Powered by Google Forms · Responses saved to our private spreadsheet
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRY -->
+<section id="registry">
+  <div class="sec-head">
+    <p class="sec-eye">Gifts &amp; Registry</p>
+    <h2 class="sec-title">Registry</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="reg-wrap">
+    <p class="reg-note">
+      Your presence in our enchanted forest<br>
+      is the greatest gift of all.<br>
+      For those who wish to honor us further,<br>
+      registry details are below.
+    </p>
+    <div class="reg-grid">
+      <a class="btn" href="#" target="_blank">Zola Registry →</a>
+      <a class="btn btn-moss" href="#" target="_blank">Amazon Registry →</a>
+      <a class="btn btn-moss" href="#" target="_blank">Honeymoon Fund →</a>
+    </div>
+    <div class="vine" style="margin:3rem auto;"></div>
+    <p style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,234,216,0.22);">
+      Registry links updated closer to the wedding
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-head">
+    <p class="sec-eye">Alphonzo &amp; India</p>
+    <h2 class="sec-title">Our Gallery</h2>
+    <div class="vine"></div>
+  </div>
+  <div class="gallery-wrap">
+    <p class="gallery-note">Engagement photos arriving September 2026</p>
+    <div class="gallery-grid">
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+      <div class="gallery-ph"><div class="gallery-ph-inner">Photo<br>coming soon</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-names">Alphonzo &amp; India</p>
+  <p class="footer-date">May 29, 2027 · New Franklin, Ohio · #ForeverMoore2027</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobile-menu');
+  var toggle=document.querySelector('.nav-toggle');
+  if(menu.classList.contains('open')&&!menu.contains(e.target)&&!toggle.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+
+function countdown(){
+  var target=new Date('2027-05-29T17:00:00-04:00').getTime();
+  function tick(){
+    var diff=target-Date.now();
+    if(diff<=0){
+      ['d','h','m','s'].forEach(function(x){
+        document.getElementById('cd-'+x).textContent='0';
+      });
+      return;
+    }
+    document.getElementById('cd-d').textContent=Math.floor(diff/86400000);
+    document.getElementById('cd-h').textContent=Math.floor((diff%86400000)/3600000);
+    document.getElementById('cd-m').textContent=Math.floor((diff%3600000)/60000);
+    document.getElementById('cd-s').textContent=Math.floor((diff%60000)/1000);
+  }
+  tick();
+  setInterval(tick,1000);
+}
+countdown();
+</script>
+</body>
+</html>
